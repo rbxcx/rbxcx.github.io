@@ -299,6 +299,13 @@ body {
   background-size: 250%;
 }
 
+/* The collection menus read as a navigational index, while homepage copy
+   retains its original capitalization. */
+.collection-page .navlink:link,
+.collection-page .navlink:visited {
+  text-transform: uppercase;
+}
+
 .navlink:hover,
 .navlink:active {
   -webkit-transform: translateX(1rem);
@@ -2046,4 +2053,3 @@ For inner.html 3hCollectionSection Mobile version
     overflow: clip;
     text-overflow: ellipsis; /* Adds '...' for overflowed text */
 }
-

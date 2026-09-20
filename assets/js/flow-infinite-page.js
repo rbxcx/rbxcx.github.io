@@ -51,27 +51,19 @@ ScrollTrigger.saveStyles(
 
 /////////////////////////////////////////////////////////////////////////
 // Journey section animation
-const eternalBallTl = gsap.timeline({
-  defaults: { duration: 2, ease: 'back.out(1.7)' },
-  scrollTrigger: {
-    trigger: '.eternal-journey-section',
-    start: '100px 70%',
-  },
-});
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const eternalSectionTextTl = gsap.timeline({
+    defaults: { duration: 0.65, ease: 'sine.out' },
+    scrollTrigger: {
+      trigger: '.eternal-section-title',
+      start: 'top 82%',
+    },
+  });
 
-eternalBallTl.from('.fi-cap-ball', { opacity: 0, x: -100 });
-
-const eternalSectionTextTl = gsap.timeline({
-  defaults: { duration: 2, ease: 'back.out(1.7)' },
-  scrollTrigger: {
-    trigger: '.eternal-section-title',
-    start: 'top 70%',
-  },
-});
-
-eternalSectionTextTl
-  .from('.eternal-section-title', { opacity: 0, y: 50 })
-  .from('.eternal-list-item', { opacity: 0, y: 50, stagger: 0.5 }, 0.5);
+  eternalSectionTextTl
+    .from('.eternal-section-title', { opacity: 0, y: 20 })
+    .from('.eternal-list-item', { opacity: 0, y: 18, stagger: 0.08 }, 0.1);
+}
 
 /////////////////////////////////////////////////////////////////////////
 // Collection section animation
@@ -84,6 +76,32 @@ const collectionTl = gsap.timeline({
 });
 
 collectionTl.from('.collection-section-content', { opacity: 0, y: 50 });
+
+/////////////////////////////////////////////////////////////////////////
+// Bridge Between Worlds — a scrubbed reveal follows the scroll in both
+// directions, so the composition never snaps or gets stranded mid-arrival.
+const bridgeWorlds = document.querySelector('#collectionSection.fi-bridge-worlds');
+if (bridgeWorlds && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const heading = bridgeWorlds.querySelector('.fi-bridge-heading');
+  const notes = bridgeWorlds.querySelectorAll('.fi-bridge-note');
+  const bottleWrap = bridgeWorlds.querySelector('.fi-bridge-bottle-wrap');
+
+  const bridgeTl = gsap.timeline({
+    defaults: { ease: 'sine.inOut' },
+    scrollTrigger: {
+      trigger: bridgeWorlds,
+      start: 'top 88%',
+      end: 'top 24%',
+      scrub: 0.8,
+    },
+  });
+
+  if (heading) bridgeTl.from(heading, { autoAlpha: 0, y: 24, duration: 0.65 });
+  if (bottleWrap) bridgeTl.from(bottleWrap, { autoAlpha: 0, y: 70, scale: 0.96, duration: 1 }, 0.12);
+  if (notes.length) {
+    bridgeTl.from(notes, { autoAlpha: 0, y: 26, stagger: 0.14, duration: 0.7 }, 0.45);
+  }
+}
 
 /////////////////////////////////////////////////////////////////////////
 // Gallery sections animation
@@ -124,18 +142,27 @@ ScrollTrigger.matchMedia({
       const perfume = gallery.querySelector('.gallery-perfume');
       const cols = [...gallery.querySelectorAll('.gallery-col')].reverse();
       const titles = [perfume, ...gallery.querySelectorAll('h4')];
+      const isFlowEssence = Boolean(gallery.closest('.fi-essence'));
 
       const colTl = gsap.timeline({
-        defaults: { duration: 2, ease: 'back.out(1.7)' },
+        defaults: isFlowEssence
+          ? { duration: 0.85, ease: 'sine.out' }
+          : { duration: 2, ease: 'back.out(1.7)' },
         scrollTrigger: {
           trigger: gallery,
-          start: 'top 70%',
+          start: isFlowEssence ? 'top 88%' : 'top 70%',
         },
       });
 
-      colTl
-        .from(cols, { x: 100, opacity: 0, stagger: 0.5 })
-        .from(titles, { y: 100, opacity: 0, stagger: 0.5 });
+      if (isFlowEssence) {
+        colTl
+          .from(cols, { x: 65, opacity: 0, stagger: 0.1 })
+          .from(titles, { y: 28, opacity: 0, stagger: 0.08, duration: 0.65 }, 0.18);
+      } else {
+        colTl
+          .from(cols, { x: 100, opacity: 0, stagger: 0.5 })
+          .from(titles, { y: 100, opacity: 0, stagger: 0.5 });
+      }
     });
   },
 });
@@ -166,52 +193,47 @@ perfumeSections.forEach(section => {
 });
 
 /////////////////////////////////////////////////////////////////////////
-// Discovery set section animation
-const discoveryTl = gsap.timeline({
-  defaults: { duration: 2, ease: 'back.out(1.7)' },
-  scrollTrigger: {
-    trigger: '.discovery-set-content',
-    start: 'top 70%',
-  },
-});
+// The remaining Flow chapters enter with one quiet curtain-like pass.
+// The olfactive timeline above deliberately remains untouched.
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const catalog = document.querySelector('.fi-catalog');
+  if (catalog) {
+    const catalogHeader = catalog.querySelector('.fi-catalog-header');
+    const catalogItems = gsap.utils.toArray('.fi-catalog-item', catalog);
+    const catalogTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: catalog,
+        start: 'top 90%',
+        end: 'top 48%',
+        scrub: 0.55,
+      },
+    });
 
-discoveryTl.from('.discovery-set-product', {
-  opacity: 0,
-  y: 100,
-});
+    catalogTl
+      .from(catalogHeader, { opacity: 0.18, y: 12, duration: 0.38, ease: 'sine.out' })
+      .from(catalogItems, {
+        opacity: 0.12,
+        y: 18,
+        scale: 0.992,
+        duration: 0.72,
+        ease: 'sine.out',
+        stagger: 0.025,
+        transformOrigin: '50% 60%',
+      }, 0.12);
+  }
 
-/////////////////////////////////////////////////////////////////////////
-// Heart behind section animation
-if (document.querySelector('.heart-behind-content')) {
-  const heartBehindTl = gsap.timeline({
-    defaults: { duration: 2, ease: 'back.out(1.7)' },
-    scrollTrigger: {
-      trigger: '.heart-behind-content',
-      start: 'top 70%',
-    },
-  });
-
-  heartBehindTl.from('.heart-behind-content', {
-    opacity: 0,
-    y: 100,
+  [
+    ['.fi-surprise-web', '.fi-surprise-art, .fi-surprise-web-copy'],
+    ['.fi-heart', '.fi-heart-portrait, .fi-heart-copy'],
+  ].forEach(([trigger, targets]) => {
+    const section = document.querySelector(trigger);
+    if (!section) return;
+    gsap.timeline({
+      defaults: { duration: 0.85, ease: 'power2.out' },
+      scrollTrigger: { trigger: section, start: 'top 82%', toggleActions: 'play none none reverse' },
+    }).from(targets, { autoAlpha: 0, y: 30, clipPath: 'inset(0 0 12% 0)', stagger: 0.12 });
   });
 }
-
-/////////////////////////////////////////////////////////////////////////
-// Catalog section animation
-const catalogTl = gsap.timeline({
-  defaults: { duration: 2, ease: 'back.out(1.7)' },
-  scrollTrigger: {
-    trigger: '.catalog-content',
-    start: 'top 70%',
-  },
-});
-
-catalogTl.from('.catalog-product', {
-  opacity: 0,
-  y: 100,
-  stagger: 0.5,
-});
 
 // Desktop essence uses the gallery loop above. Mobile motion is owned by
 // src/flow-essence.ts so the bottle and words have only one animation driver.

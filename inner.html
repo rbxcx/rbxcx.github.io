@@ -82,10 +82,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>ETERNAL JOURNEY | Inner Journey</title>
-    <script type="module" crossorigin src="/assets/scent-journey-B_LvhCpo.js"></script>
-    <script type="module" crossorigin src="/assets/collection-ground-Mdg2rUI4.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/scent-journey-DoMIhkW6.css">
-    <link rel="stylesheet" crossorigin href="/assets/collection-ground-1_IdL_WQ.css">
+    <script type="module" crossorigin src="/assets/scent-journey-DK1cbWpj.js"></script>
+    <script type="module" crossorigin src="/assets/collection-ground-Dg-A_Tkr.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/scent-journey-CM0aUUaF.css">
+    <link rel="stylesheet" crossorigin href="/assets/collection-ground-67oWYxlv.css">
   </head>
   <body class="collection-page">
     <!----------------------------------------------------->
@@ -96,8 +96,7 @@
       <nav class="nav text-light">
         <a href="./index.html" class="text-decoration-none">
           <div class="navbrand">
-            <img src="./assets/img/logo.svg" alt="Logo" />
-            <h4 class="display-6">ETERNAL JOURNEY</h4>
+            <img class="navbrand-emblem" src="/assets/brand/ej-logo-steel.png" alt="Eternal Journey emblem" />
           </div>
         </a>
         <ul class="navlist">
@@ -897,7 +896,7 @@
       <!-- Midnight to sunrise section end -->
       <!----------------------------------------------------->
 
-      <section id="scent-journey" class="collection-notes" aria-label="Inner Journey olfactive notes">
+      <section id="scent-journey" class="collection-notes collection-notes--inner" aria-label="Inner Journey olfactive notes">
         <div class="scent-intro">
           <p class="scent-kicker">Inner Journey</p>
           <h2>Olfactive Notes</h2>
@@ -1011,7 +1010,8 @@
       
       <!-------   Show Catalog Section in Desktop   --------->
 
-        <section id="catalogSection" class="catalog-section desktop-version" style=" display: block; height: 100vh; background-image: url('./assets/img/bg-hd-light.png'); background-size: cover; background-position: center;">
+      <div id="catalogSection">
+        <section class="catalog-section desktop-version" style=" display: block; height: 100vh; background-image: url('./assets/img/bg-hd-light.png'); background-size: cover; background-position: center;">
 
         <div
           class="container text-center pt-md-5 align-items-start div-no-scroll" >
@@ -1065,7 +1065,7 @@
 
    <!-------   Show Catalog Section in Mobile   --------->
 
-        <section id="catalogSection" class="catalog-section mobile-version" style=" display: none; height: auto; background-image: url('./assets/img/bg-hd-light.png'); background-size: cover; background-position: center;">
+        <section class="catalog-section mobile-version" style=" display: none; height: auto; background-image: url('./assets/img/bg-hd-light.png'); background-size: cover; background-position: center;">
 
         <div
           class="container text-center pt-md-5 align-items-start div-no-scroll" >
@@ -1116,6 +1116,7 @@
           </div>
         </div>
       </section>
+      </div>
       <!----------------------------------------------------->
       <!-- Catalog section end -->
       <!----------------------------------------------------->

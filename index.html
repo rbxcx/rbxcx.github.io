@@ -25,7 +25,7 @@
     <meta name="theme-color" content="#050506" />
     <link rel="icon" href="/assets/brand/ej-logo-steel.png" type="image/png" />
     <link rel="preload" as="image" href="/assets/brand/ej-logo-steel.png" />
-    <link rel="preload" as="image" href="/assets/bottles/flow-infinite.png" />
+    <link rel="preload" as="image" href="/assets/bottles/flow-infinite-homepage.png" />
     <link rel="preload" as="image" href="/assets/brand/night-sky-deep.jpeg" />
     <link rel="preload" as="image" href="/ej-infinity-2-feathered.png" />
     <link rel="preload" as="image" href="/ej-infinity-2-mobile-fill.png" />
@@ -35,11 +35,11 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
-    <script type="module" crossorigin src="/assets/main-Bl8DpB8U.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/ground-DTewP9vx.js">
-    <link rel="modulepreload" crossorigin href="/assets/mobile-scroll-DDHECFHt.js">
-    <link rel="stylesheet" crossorigin href="/assets/ground-LsPwTNNs.css">
-    <link rel="stylesheet" crossorigin href="/assets/main-Lcn2sQD3.css">
+    <script type="module" crossorigin src="/assets/main-DlIGpZuD.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/scent-journey-B_LvhCpo.js">
+    <link rel="modulepreload" crossorigin href="/assets/mobile-scroll-D92B4H3a.js">
+    <link rel="stylesheet" crossorigin href="/assets/scent-journey-DoMIhkW6.css">
+    <link rel="stylesheet" crossorigin href="/assets/main-DUfB0dFT.css">
   </head>
   <body class="index-page">
     <div class="review-bar" id="review-bar" aria-hidden="true">
@@ -77,6 +77,18 @@
         <div class="split-warm"></div>
       </div>
       <div class="vortex" id="vortex" aria-hidden="true"></div>
+      <video
+        class="energy-loop"
+        id="energy-loop"
+        muted
+        playsinline
+        loop
+        preload="none"
+        poster="/assets/brand/energy-loop-poster.jpg"
+        aria-hidden="true"
+      >
+        <source src="/assets/brand/energy-loop-silent.mp4" type="video/mp4" />
+      </video>
       <div class="journey-still" id="journey-still" aria-hidden="true"></div>
 
       <div class="flow-bg" id="flow-bg" aria-hidden="true"></div>
@@ -91,7 +103,7 @@
             <svg
               class="fi-svg"
               id="fi-svg"
-              viewBox="0 0 200 360"
+              viewBox="-300 -540 800 1440"
               overflow="visible"
               aria-hidden="true"
             >
@@ -122,6 +134,8 @@
           </div>
         </div>
       </div>
+
+      <p class="energy-caption" id="energy-caption">Now experience the FLOW between the two Journeys</p>
 
       <div class="line-bottles" id="line-bottles" aria-hidden="true">
         <img class="line-bottle outer" data-line="outer" data-i="0" src="/assets/bottles/sunrise-to-sunset.png" width="319" height="774" alt="" />
@@ -186,17 +200,17 @@
         <div class="act6-panels">
           <div class="sku-panel" id="act6-heart">
             <p class="sku-mark">H1</p>
-            <h2 class="act-title">Heart</h2>
+          <h2 class="act-title">H1 Heart</h2>
             <p class="act-lede">Gold at the centre. The pulse it keeps.</p>
           </div>
           <div class="sku-panel" id="act6-harmony">
             <p class="sku-mark">H2</p>
-            <h2 class="act-title">Harmony</h2>
+          <h2 class="act-title">H2 Harmony</h2>
             <p class="act-lede">Pearl quiet. Two notes, one breath.</p>
           </div>
           <div class="sku-panel" id="act6-happiness">
             <p class="sku-mark">H3</p>
-            <h2 class="act-title">Happiness</h2>
+          <h2 class="act-title">H3 Happiness</h2>
             <p class="act-lede">A green that does not ask permission.</p>
           </div>
         </div>
@@ -294,68 +308,65 @@
     </div>
 
     <section id="scent-journey" aria-label="Scent collections">
-      <div class="scent-intro">
-        <h2>Outer Journey</h2>
-        <p>Three fragrances, one day traced end to end.</p>
-      </div>
-
-      <div class="scent-collection" data-collection="outer">
-        <article class="scent-step" data-scent="sunrise-to-sunset"></article>
-        <article class="scent-step" data-scent="sunset-to-midnight"></article>
-        <article class="scent-step" data-scent="midnight-to-sunrise"></article>
-      </div>
-
-      <div class="scent-intro">
-        <h2>Flow Infinite</h2>
-        <p>The fragrance that connects the two worlds.</p>
-      </div>
-
-      <div class="scent-collection" data-collection="flow">
-        <article class="scent-step" data-scent="flow-infinite"></article>
-      </div>
-
-      <div class="scent-intro">
-        <h2>Inner Journey</h2>
-        <p>Heart, Harmony, Happiness.</p>
-      </div>
-
-      <div class="scent-collection" data-collection="inner">
-        <article class="scent-step" data-scent="h1-heart"></article>
-        <article class="scent-step" data-scent="h2-harmony"></article>
-        <article class="scent-step" data-scent="h3-happiness"></article>
-      </div>
-
-      <div class="scent-finale" aria-label="The seven fragrances">
-        <div class="scent-finale-stage">
-          <header class="scent-finale-head">
-            <h2>The Collection</h2>
-            <p>Seven fragrances. One Eternal Journey.</p>
-          </header>
-          <div class="scent-finale-bottles">
-            <section class="scent-finale-row" data-finale-collection="outer" aria-label="Outer Journey fragrances">
-              <h3>Outer Journey</h3>
-              <div class="scent-finale-row-bottles">
-                <img src="/assets/bottles/sunrise-to-sunset.png" alt="Sunrise to Sunset" loading="lazy" width="319" height="774" />
-                <img src="/assets/bottles/sunset-to-midnight.png" alt="Sunset to Midnight" loading="lazy" width="314" height="777" />
-                <img src="/assets/bottles/midnight-to-sunrise.png" alt="Midnight to Sunrise" loading="lazy" width="311" height="767" />
-              </div>
-            </section>
-            <section class="scent-finale-row" data-finale-collection="flow" aria-label="Flow Infinite fragrance">
-              <h3>Flow Infinite</h3>
-              <div class="scent-finale-row-bottles">
-                <img src="/assets/bottles/flow-infinite.png" alt="Flow Infinite" loading="lazy" width="200" height="360" />
-              </div>
-            </section>
-            <section class="scent-finale-row" data-finale-collection="inner" aria-label="Inner Journey fragrances">
-              <h3>Inner Journey</h3>
-              <div class="scent-finale-row-bottles">
-                <img src="/assets/bottles/h1-heart.png" alt="Heart" loading="lazy" width="340" height="865" />
-                <img src="/assets/bottles/h2-harmony.png" alt="Harmony" loading="lazy" width="341" height="860" />
-                <img src="/assets/bottles/h3-happiness.png" alt="Happiness" loading="lazy" width="338" height="860" />
-              </div>
-            </section>
+      <section class="journey-editorial journey-editorial--manifesto" aria-labelledby="journey-manifesto-title">
+        <div class="journey-editorial__inner">
+          <div class="journey-editorial__heading">
+            <h2 id="journey-manifesto-title">ETERNAL JOURNEY</h2>
+            <p class="journey-editorial__headline">Luxury, with a soul.</p>
+          </div>
+          <div class="journey-editorial__copy">
+            <p>A Maison de Parfum where luxury becomes a sensorial expression of art, wellbeing and self-discovery.</p>
+            <p>Created for those who move through life with intention, each creation awakens the senses and invites a deeper connection to the present.</p>
+            <p>A journey of scent. A journey of feeling. A journey towards the self.</p>
           </div>
         </div>
+      </section>
+
+      <section class="journey-editorial journey-editorial--story" aria-labelledby="journey-story-title">
+        <div class="journey-editorial__inner">
+          <div class="journey-editorial__heading">
+            <h2 id="journey-story-title">THE ETERNAL JOURNEY STORY</h2>
+            <p class="journey-editorial__thesis">A JOURNEY FROM THE OUTER WORLD TO THE INNER SELF.</p>
+          </div>
+          <div class="journey-editorial__copy">
+            <p>ETERNAL JOURNEY is a luxury Maison de Parfum built around the belief that fragrance can be more than a scent. It can be a moment of presence, expression and transformation.</p>
+            <p>The story begins with the Outer Journey, inspired by the ever-changing rhythm of the day: Sunrise to Sunset, Sunset to Midnight, and Midnight to Sunrise. It then moves inward through the Inner Journey with H1: Heart, H2: Harmony and H3: Happiness, an exploration of balance, serenity and self-awareness.</p>
+            <p>At the meeting point of these two worlds is FLOW Infinite: an expression of connection, where life’s movement and the stillness within come together, and everything simply flows.</p>
+          </div>
+          <p class="journey-editorial__signoff">ETERNAL JOURNEY -<br />Experience the journey. Reveal your inner self.</p>
+        </div>
+      </section>
+
+    </section>
+
+    <section class="home-catalog" aria-labelledby="home-catalog-title">
+      <h2 id="home-catalog-title">Catalog</h2>
+      <div class="home-catalog__groups">
+        <section class="home-catalog__group" aria-labelledby="catalog-outer-title">
+          <h3 id="catalog-outer-title">Outer Journey</h3>
+          <div class="home-catalog__bottles">
+            <img src="/assets/bottles/sunrise-to-sunset.png" alt="Sunrise to Sunset perfume bottle" loading="lazy" width="319" height="774" />
+            <img src="/assets/bottles/sunset-to-midnight.png" alt="Sunset to Midnight perfume bottle" loading="lazy" width="314" height="777" />
+            <img src="/assets/bottles/midnight-to-sunrise.png" alt="Midnight to Sunrise perfume bottle" loading="lazy" width="311" height="767" />
+          </div>
+          <a class="catalog-link" href="outer.html">Explore Outer Journey</a>
+        </section>
+        <section class="home-catalog__group home-catalog__group--flow" aria-labelledby="catalog-flow-title">
+          <h3 id="catalog-flow-title">Flow Infinite</h3>
+          <div class="home-catalog__bottles">
+            <img src="/assets/bottles/flow-infinite-homepage.png" alt="Flow Infinite perfume bottle" loading="lazy" width="896" height="1200" />
+          </div>
+          <a class="catalog-link" href="flow-infinite.html">Explore Flow Infinite</a>
+        </section>
+        <section class="home-catalog__group" aria-labelledby="catalog-inner-title">
+          <h3 id="catalog-inner-title">Inner Journey</h3>
+          <div class="home-catalog__bottles">
+            <img src="/assets/bottles/h1-heart.png" alt="H1 Heart perfume bottle" loading="lazy" width="340" height="865" />
+            <img src="/assets/bottles/h2-harmony.png" alt="H2 Harmony perfume bottle" loading="lazy" width="341" height="860" />
+            <img src="/assets/bottles/h3-happiness.png" alt="H3 Happiness perfume bottle" loading="lazy" width="338" height="860" />
+          </div>
+          <a class="catalog-link" href="inner.html">Explore Inner Journey</a>
+        </section>
       </div>
     </section>
 
